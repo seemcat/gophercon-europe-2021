@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 	"os"
-
+	"fmt"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 )
@@ -46,12 +46,21 @@ func handleRequests() {
 	}
 }
 
+// A function to print a tweet
+func PrintTweets(tweet []string) []string {
+    return tweet
+}
+
 func main() {
 
 	// Tweets array will be accessible by all .go files
 	Tweets = []Tweet{
 		Tweet{ID: "1", Copy: "This is our first default tweet!", Author: "maricris@magic.link"},
 	}
+
+	var firstTweet = []string{"1", "This is our first default tweet!", "maricris@magic.link"}
+
+	fmt.Printf("%+q\n", PrintTweets(firstTweet))
 
 	handleRequests()
 }
